@@ -1,0 +1,26 @@
+getgenv().Mode = "OneClick"
+getgenv().Setting = {
+    ["Team"] = "Pirates", -- Options: "Pirates", "Marines"
+    ["FucusOnLevel"] = true, -- Focus on leveling up
+    ["Fruits"] = {
+        -- Fruit priority settings
+        ["Primary"] = {
+            -- High-priority fruits: if the current fruit is NOT in this list, it will eat/buy a new one
+            "Dough-Dough",
+            "Dragon-Dragon",
+            "Buddha-Buddha",
+            "Blizzard-Blizzard", -- ← Blizzard fruit added here
+        },
+        ["Normal"] = {
+            -- Normal fruits: lower priority than "Primary"
+            "Flame-Flame",
+            "Light-Light",
+            "Magma-Magma",
+        }
+        -- To get all fruit names in-game, run this:
+        -- local t={};for _,v in pairs(game.ReplicatedStorage.Remotes.CommF_:InvokeServer("GetFruits")) do table.insert(t, '"'..v.Name..'",') end;setclipboard(table.concat(t, "\n"))
+    },
+    ["IdleCheck"] = 150, -- If not moving after (x) seconds, rejoin the server
+}
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/xQuartyx/QuartyzScript/main/Loader.lua"))()
